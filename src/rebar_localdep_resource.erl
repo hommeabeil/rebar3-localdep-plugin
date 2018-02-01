@@ -17,6 +17,7 @@ needs_update(_AppDir, _Resource) ->
 download(AppDir, {localdep, Path}, _State) ->
     download(AppDir, {localdep, Path, {exclude, []}}, _State);
 download(AppDir, {localdep, Path, {exclude, ExcludedFiles}}, _State) ->
+    io:format("Download to: ~p~n", [AppDir]),
     case os:getenv("LOCALDEP_DIR") of
         false ->
             {fetch_fail, "`LOCALDEP_DIR` env variable not defined."};
